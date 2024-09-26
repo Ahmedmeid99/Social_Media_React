@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom dark mode styles for Quill toolbar */
+.custom-quill .ql-toolbar {
+    background: #eee !important;
+      color: #ddd;
+}
+.ql-container.ql-snow {
+    height: 100px;
+}
+
+a{
+    color: blue ;
+}
