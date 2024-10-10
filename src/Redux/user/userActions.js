@@ -10,7 +10,7 @@ export const signupUser = createAsyncThunk(
   async (UserData, thunkAPI) => {
     try {
       //
-      const response = await SignUpUser(UserData);
+      await SignUpUser(UserData);
       return data; // Return the data directly if successful
     } catch (error) {
       console.error('loginUser Error:', error);
@@ -68,7 +68,7 @@ export const updateUser = createAsyncThunk(
   "User/update",
   async (credentials, thunkAPI) => {
     try {
-      const response = await UpdateUserInfo(credentials);
+       await UpdateUserInfo(credentials);
       return data; // Return the data directly if successful
     } catch (error) {
       console.error('loginUser Error:', error);

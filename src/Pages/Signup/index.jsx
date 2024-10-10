@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signupUser } from "../../Redux/user/userActions";
 import { GetCountries } from "../../API/Country";
 import { useDispatch, useSelector } from "react-redux";
-import Loading from "../../UI/Loading";
+import Loading from "../../Components/Loading";
 import Notification from "../../UI/Notification";
 // Initial state for the form
 const initialState = {

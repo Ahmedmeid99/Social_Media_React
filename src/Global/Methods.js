@@ -1,8 +1,8 @@
-import {LOCALSTORAGE_USERDATA} from "./Variables"
+import {LOCALSTORAGE_APP_Name} from "./Variables"
 
 
 export  const getUserInfo = () => {
-    const storedUserInfo = localStorage.getItem(LOCALSTORAGE_USERDATA);
+    const storedUserInfo = localStorage.getItem(LOCALSTORAGE_APP_Name);
 
     // Check if user info exists in localStorage
     if (storedUserInfo) {
@@ -13,5 +13,5 @@ export  const getUserInfo = () => {
 
   export const StoreLogin = (userData) => {
     // Overwrite any existing user data
-    localStorage.setItem(LOCALSTORAGE_USERDATA, JSON.stringify(userData));
+    localStorage.setItem(LOCALSTORAGE_APP_Name, JSON.stringify(userData));
   };

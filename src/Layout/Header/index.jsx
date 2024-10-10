@@ -27,6 +27,8 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
+import { getUserInfo } from "../../Global/Methods";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -68,6 +70,7 @@ const callsToAction = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const User = getUserInfo();
 
   useEffect(() => {
     if (darkMode) {
@@ -88,13 +91,10 @@ export default function Header() {
         className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          {/* <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Friendbook</span>
-            <img alt="" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" className="h-8 w-auto" />
-          </a> */}
-          <a href="#" className="text-lg text-sky-200 font-bold">
+          
+          <Link to="/" className="text-lg text-sky-200 font-bold">
             Friendbook
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -107,7 +107,7 @@ export default function Header() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12 ">
-          <Popover className="relative">
+          {/* <Popover className="relative">
             <PopoverButton className="text-sky-200 flex items-center gap-x-1 text-sm font-semibold leading-6 ">
               Product
               <ChevronDownIcon
@@ -161,17 +161,17 @@ export default function Header() {
                 ))}
               </div>
             </PopoverPanel>
-          </Popover>
+          </Popover> */}
 
-          <a href="#" className="text-sky-200 text-sm font-semibold leading-6 ">
-            Features
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-sky-200">
+          <Link to={`/Profile/${User?.UserId}`} className="text-sky-200 text-sm font-semibold leading-6">
+            Profile
+            </Link>
+          {/* <a href="#" className="text-sm font-semibold leading-6 text-sky-200">
             Marketplace
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-sky-200">
             Company
-          </a>
+          </a> */}
           {/* ------------------------- */}
           <button
             onClick={toggleDarkMode}
@@ -182,9 +182,9 @@ export default function Header() {
           {/* ------------------------- */}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-sky-200">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          <Link to="/Login" className="text-sm font-semibold leading-6 text-sky-200">
+          Logout <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </nav>
       <Dialog
@@ -202,9 +202,9 @@ export default function Header() {
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
               /> */}
-              <a href="#" className="text-lg text-sky-200 font-bold">
+              <Link to="/" className="text-lg text-sky-200 font-bold">
                 Friendbook
-              </a>
+              </Link>
             </a>
             <button
               type="button"
@@ -218,7 +218,7 @@ export default function Header() {
           <div className="mt-6 flow-root ">
             <div className="-my-6 divide-y divide-gray-500/10 ">
               <div className="space-y-2 py-6 *:text-sky-200">
-                <Disclosure as="div" className="-mx-3">
+                {/* <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className=" text-sky-200 group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7  hover:bg-darkColor-900">
                     Product
                     <ChevronDownIcon
@@ -238,14 +238,14 @@ export default function Header() {
                       </DisclosureButton>
                     ))}
                   </DisclosurePanel>
-                </Disclosure>
-                <a
-                  href="#"
+                </Disclosure> */}
+                <Link
+                  Link to={`/Profile/${User?.UserId}`}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-darkColor-900"
                 >
-                  Features
-                </a>
-                <a
+                  Profile
+                </Link>
+                {/* <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-darkColor-900"
                 >
@@ -256,7 +256,7 @@ export default function Header() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-darkColor-900"
                 >
                   Company
-                </a>
+                </a> */}
               </div>
               <button
             onClick={toggleDarkMode}
@@ -265,12 +265,12 @@ export default function Header() {
             {darkMode ? <FaSun size={12} /> : <FaMoon size={12} />}
           </button>
               <div className="py-6">
-                <a
-                  href="#"
+                <Link
+                  to="/Login"
                   className="text-sky-200 -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7  hover:bg-darkColor-900"
                 >
-                  Log in
-                </a>
+                  Logout
+                </Link>
               </div>
             </div>
           </div>

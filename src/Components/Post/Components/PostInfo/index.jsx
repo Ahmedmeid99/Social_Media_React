@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 import {
   AddUserReaction,
   DeleteUserReaction,
-  UpdateUserReaction,
 } from "../../../../API/Reaction";
 
 import clickSound from "../../../../assets/Sound_Effects/pop-up.mp3"
@@ -37,7 +36,7 @@ const PostActions = ({
  
   const audioRef = useRef(new Audio(clickSound));
 
-  const { User, isSignup, loading, error } = useSelector((state) => state.User);
+  const { User} = useSelector((state) => state.User);
 
   const FetchComments = async (postId) => {
     const response = await GetComments(postId);
@@ -46,7 +45,6 @@ const PostActions = ({
 
   useEffect(() => {
     FetchComments(postId);
-    console.log(User);
     return () => {};
   }, []);
 
@@ -70,7 +68,7 @@ const PostActions = ({
 
     const comment = {
       PostId: postId,
-      UserId: User.UserId, // User.UserId
+      UserId: User.UserId, 
       CommentText,
     };
 
@@ -202,7 +200,7 @@ const GetSelectedReactionId = (ReactionType)=>{
     if (SelectedReact == ReactionType) {
       setSelectedReact("");
       // Delete UserReaction
-      await handleDeleteReaction(postId,User.UserId); // Ceate Array of ReactionTypes and its IDs
+      await handleDeleteReaction(postId,User.UserId); 
 
     }  else {
       // Add UserReaction
@@ -211,12 +209,10 @@ const GetSelectedReactionId = (ReactionType)=>{
       handleSelectedReaction(ReactionType);
     }
 
-    // Add It to database
   };
 
   return (
     <div className="shadow-sm rounded-lg py-2 px-3 bg-gray-50 dark:bg-gray-700">
-      {/* Like, Love, Comment, and Options Section */}
       <div className="flex justify-between items-center">
         <div className="flex space-x-3 *:text-sm">
           {/* Likes */}
@@ -272,7 +268,6 @@ const GetSelectedReactionId = (ReactionType)=>{
           className="text-gray-600 hover:text-green-600 dark:text-gray-300"
           onClick={toggleComments}
         >
-          {/* 💬 {commentsVisible ? "Hide Comments" : "Show Comments"} */}
           💬 {comments.length}
         </button>
       </div>

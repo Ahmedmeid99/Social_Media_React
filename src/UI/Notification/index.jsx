@@ -10,16 +10,16 @@ const Notification = ({ error }) => {
         setVisible(false);
       }, 3000);
 
-      return () => clearTimeout(timer); // Cleanup timer on component unmount
+      return () => clearTimeout(timer); 
     }
   }, [error]);
 
   if (!visible) return null;
- //  text-gray-500 bg-white
+
   return (
     <div className="fixed top-4 left-4 text-red-800 bg-red-100 z-50 w-full max-w-xs p-4 rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
       <div className="flex">
-        {/* Placeholder for the image, you can replace src with dynamic content if needed */}
+
         <div className="ms-3 text-sm font-normal">
           <span className="mb-1 text-sm font-semibold text-red-900">Error Notification</span>
           <div className="mb-2 text-sm font-normal">{error.message} {error.status}</div>

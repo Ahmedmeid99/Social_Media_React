@@ -1,1 +1,1 @@
-export const LOCALSTORAGE_USERDATA = "FriendBookUsreInfo";
+export const LOCALSTORAGE_APP_Name = "FriendBookUsreInfo";

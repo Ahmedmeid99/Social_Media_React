@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import img from "../../assets/images/profile-img.jpg";
 import Card from "../../UI/Card";
 import { GetUserProfilePicture } from "../../API/ProfilePicture";
 import { Link } from "react-router-dom";
@@ -38,9 +37,9 @@ export default function ProfileBox({ userId, userName, email }) {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </div>
@@ -58,14 +57,14 @@ export default function ProfileBox({ userId, userName, email }) {
           <ProfileInfo count={"88.7 k"} title={"Followe"} />
           <ProfileInfo count={"1,334"} title={"Followings"} />
         </div>
+        <Link to={`/Profile/${userId}`} className="text-inherit">
         <button
           type="button"
           className="text-white mx-auto block bg-sky-600 hover:bg-sky-700  dark:bg-darkColor-700 border dark:hover:bg-darkColor-800 dark:hover:border focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-12 py-2.5 text-center mb-2  dark:focus:ring-blue-800"
         >
-          <Link to="/Profile" className="text-inherit">
             Open
-          </Link>
         </button>
+          </Link>
       </Card>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from "react";
-import Loading from "./UI/Loading";
+import Loading from "./Components/Loading";
 import AppRouter from "./routes/AppRouter";
 import { useDispatch } from "react-redux";
 import { getUserInfo } from "./Global/Methods";

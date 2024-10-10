@@ -9,12 +9,14 @@ function AddEditPost({
   onUpdatePost,
   onClose,
   postId,
-  postText="",
+  postText,
   isUpdateMoed = false,
 }) {
-  const [text, setText] = useState(postText);
+  const [text, setText] = useState(postText || "");
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const { User, isSignup, loading, error } = useSelector((state) => state.User);
+  const quillRef = React.useRef(null);
+
+  const { User} = useSelector((state) => state.User);
 
   const handleTextChange = (value) => {
     setText(value);
@@ -30,7 +32,7 @@ function AddEditPost({
     const input = document.createElement("input");
     input.type = "file";
     input.accept = acceptType; // Set file type filter (image, video, pdf)
-    input.multiple = true; // Allow multiple file selection
+    input.multiple = false; // Allow multiple file selection
     input.onchange = handleFileChange; // Trigger file change event
     input.click(); // Open file explorer
   };
@@ -81,6 +83,7 @@ function AddEditPost({
     setText("");
     setSelectedFiles([]);
   };
+  
   const handleSubmit = async () => {
     if (isUpdateMoed) {
       await handleUpdate();
@@ -113,6 +116,7 @@ function AddEditPost({
         </label>
         {/* Rich Text Editor */}
         <ReactQuill
+          ref={quillRef}
           value={text}
           onChange={handleTextChange}
           modules={modules}

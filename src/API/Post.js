@@ -5,9 +5,9 @@ const api = axios.create({
   baseURL: URL,
 });
 
-export const GetPosts = async () => {
+export const GetPosts = async (userId,page,pageSize) => {
   try {
-    const response = await api.get(`/Api/Post`);
+    const response = await api.get(`/Api/Post/user/${userId}/page/${page}/pageSize/${pageSize}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -17,6 +17,43 @@ export const GetPosts = async () => {
 export const GetMediaDataByPostId = async (postId) => {
   try {
     const response = await api.get(`/Api/Post/Post/${postId}/mediaData`);
+    return response.data;
+  } catch (e) {
+    throw error;
+  }
+};
+
+
+export const GetPostsByUserId = async (userId) => {
+  try {
+    const response = await api.get(`/Api/Post/users/${userId}/posts`);
+    return response.data;
+  } catch (e) {
+    throw error;
+  }
+};
+
+export const GetImagesByUserId = async (userId) => {
+  try {
+    const response = await api.get(`/Api/Post/users/${userId}/images`);
+    return response.data;
+  } catch (e) {
+    throw error;
+  }
+};
+
+export const GetVideosByUserId = async (userId) => {
+  try {
+    const response = await api.get(`/Api/Post/users/${userId}/videos`);
+    return response.data;
+  } catch (e) {
+    throw error;
+  }
+};
+
+export const GetFilesByUserId = async (userId) => {
+  try {
+    const response = await api.get(`/Api/Post/users/${userId}/files`);
     return response.data;
   } catch (e) {
     throw error;
@@ -53,7 +90,6 @@ export const AddnewPost = async (userId, postContent, selectedFiles) => {
     throw error; 
   }
 };
-
 
 export const UpdatePost = async (postId,postContent, selectedFiles) => {
   try {

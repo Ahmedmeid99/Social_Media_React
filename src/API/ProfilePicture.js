@@ -14,24 +14,14 @@ export const GetUserProfilePicture = async (userId) => {
   }
 };
 
-export const GetMediaDataByPostId = async (postId) => {
-  try {
-    const response = await api.get(`/Api/Post/Post/${postId}/mediaData`);
-    return response.data;
-  } catch (e) {
-    throw error;
-  }
-};
 
-export const AddnewPost = async (userId, postContent, selectedFiles) => {
+export const AddnewProfilePicture = async (userId, selectedFiles) => {
   try {
     const formData = new FormData();
 
-    formData.append("Content", postContent);
-
     if (selectedFiles && selectedFiles.length > 0) {
       const file = selectedFiles[0]; 
-      formData.append("FormFile", file); 
+      formData.append("ImageFile", file); 
 
     } else {
       formData.append("MediaType", "None"); 
@@ -40,7 +30,34 @@ export const AddnewPost = async (userId, postContent, selectedFiles) => {
 
     formData.append("UserId", userId);
 
-    const response = await api.post(`/Api/Post`, formData, {
+    const response = await api.post(`/Api/UserProfilePicture`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",  
+      },
+    });
+
+    console.log("Post added successfully:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error adding post:", error);
+    throw error; 
+  }
+};
+
+export const UpdatenewProfilePicture = async (profilePictureId ,selectedFiles) => {
+  try {
+    const formData = new FormData();
+
+    if (selectedFiles && selectedFiles.length > 0) {
+      const file = selectedFiles[0]; 
+      formData.append("ImageFile", file); 
+
+    } else {
+      formData.append("MediaType", "None"); 
+    }
+    
+
+    const response = await api.put(`/Api/UserProfilePicture/${profilePictureId}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",  
       },

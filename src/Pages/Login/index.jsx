@@ -1,11 +1,11 @@
 //@/collapse
 
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { loginUser } from "../../Redux/user/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import Loading from "../../UI/Loading";
+import Loading from "../../Components/Loading";
 import { StoreLogin } from "../../Global/Methods";
 import Notification from "../../UI/Notification";
 
@@ -61,34 +61,45 @@ const Signup = () => {
     dispatch({ type: "SET_FIELD_VALUE", field: name, value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const userLogin = {
-      userName: state?.username,
-      password: state?.password,
-    };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true); // Show loading state
 
-    const errors = validate(state);
-
-    if (Object.keys(errors).length > 0) {
-      for (const field in errors) {
-        dispatch({ type: "SET_ERROR", field, error: errors[field] });
-      }
-    } else {
-      // Handle form submission
-      // tell use that form submated succefuly (use Model)
-      console.log("Form submitted successfully", userLogin);
-
-      UserDispatch(loginUser(userLogin));
-      // after Sucess Login navegate to Home Page
-      StoreLogin(userLogin);
-      setTimeout(() => {
-        navigate("/Home");
-        
-      }, 400);
-    }
+  const userLogin = {
+    userName: state?.username,
+    password: state?.password,
   };
+
+  const errors = validate(state);
+
+  if (Object.keys(errors).length > 0) {
+    for (const field in errors) {
+      dispatch({ type: "SET_ERROR", field, error: errors[field] });
+    }
+    setIsSubmitting(false); // Hide loading state if there are errors
+  } else {
+    if (!error) {
+      try {
+        const resultAction = await UserDispatch(loginUser(userLogin));
+        
+        StoreLogin(resultAction.payload);
+        
+        if (loginUser.fulfilled.match(resultAction)) {
+          navigate('/Home'); // Navigate after successful login
+        }
+      } catch (err) {
+        console.error("Login failed", err);
+      }
+      setIsSubmitting(false); // Hide loading state after async operation
+    }
+  }
+};
+
+if(isSubmitting){
+  return <Loading/>
+}
 
   return (
     <>

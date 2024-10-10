@@ -35,13 +35,13 @@ const UserSlice = createSlice({
       })
       .addCase(signupUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.isSignup = true; // from response
-        state.error = null; // Reset the error state
+        state.isSignup = true; 
+        state.error = null; 
       })
       .addCase(signupUser.rejected, (state, action) => {
         state.loading = false;
         state.isSignup = false;
-        state.error = action.payload; // from thunkAPI.rejectWithValue(error.response.data);
+        state.error = action.payload; 
       })
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
@@ -50,13 +50,14 @@ const UserSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         state.isLogin = true;
-        state.User = action.payload; // from response
-        state.error = null; // Reset the error state
+        
+        state.User = action.payload; 
+        state.error = null; 
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
         state.isLogin = false;
-        state.error = action.payload; // from thunkAPI.rejectWithValue(error.response.data);
+        state.error = action.payload; 
       })
       .addCase(updateUser.pending, (state) => {
         state.loading = true;
@@ -65,12 +66,12 @@ const UserSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         state.loading = false;
         state.isLogin = true;
-        state.User = action.payload; // from response
+        state.User = action.payload; 
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.loading = false;
         state.isLogin = false;
-        state.error = action.payload; // from thunkAPI.rejectWithValue(error.response.data);
+        state.error = action.payload; 
       });
   },
 });

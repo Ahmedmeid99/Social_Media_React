@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 import Layout from "../../Layout";
 import Posts from "../../Components/Post";
-import Card from "../../UI/Card";
 import background from "../../assets/images/background/background5.jpg";
 import ProfileBox from "../../Components/ProfileBox";
-import { useSelector } from "react-redux";
+import UsersList from "../../Components/UserList";
+import { getUserInfo } from "../../Global/Methods";
 
 function Home() {
-  const { User } = useSelector((state) => state.User);
-
+  const User = getUserInfo();
+ 
   return (
     <Layout>
       <div className="h-52 rounded-s-md">
@@ -30,7 +29,7 @@ function Home() {
 
         {/* Right Sidebar (Users List) */}
         <div className="hidden lg:block lg:w-4/12 xl:w-3/12">
-          <Card>Users List</Card>
+          <UsersList/>
         </div>
       </div>
     </Layout>

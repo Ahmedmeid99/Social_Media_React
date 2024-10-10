@@ -1,9 +1,18 @@
-import { URL } from "../API/APIVariables";
+import { URL } from "./APIVariables";
 import axios from "axios";
 
 const api = axios.create({
   baseURL: URL,
 });
+
+export const GetUser = async (userId) => {
+  try {
+    const response = await api.get(`/Api/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const SignUpUser = async (data) => {
   try {
@@ -32,6 +41,14 @@ export const UpdateUserInfo = async (id, data) => {
   }
 };
 
+export const GetRelatedUsers = async (userId) => {
+  try {
+    const response = await api.get(`/Api/user/getUnRelatedUsers/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 /*
 {
   "userName": "string",

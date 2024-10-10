@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AvaterPlaceHolder from "../../../../UI/PlaceHolders/Avater";
 import { useSelector } from "react-redux";
 import AddEditComment from "../AddEditComment";
 const Comment = ({
@@ -57,9 +56,9 @@ const Comment = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </div>
