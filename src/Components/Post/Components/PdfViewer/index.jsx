@@ -32,4 +32,4 @@ const PdfViewer = ({ mediaData }) => {
     );
 };
 
-export default PdfViewer;
+export default React.memo(PdfViewer);

@@ -11,4 +11,4 @@ function VideoPlaceHolder() {
   );
 }
 
-export default VideoPlaceHolder;
+export default React.memo(VideoPlaceHolder);

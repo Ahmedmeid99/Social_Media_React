@@ -287,4 +287,4 @@ const GetSelectedReactionId = (ReactionType)=>{
   );
 };
 
-export default PostActions;
+export default React.memo(PostActions);

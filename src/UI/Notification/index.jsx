@@ -40,4 +40,4 @@ const Notification = ({ error }) => {
   );
 };
 
-export default Notification;
+export default React.memo(Notification);

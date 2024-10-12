@@ -66,4 +66,4 @@ function AddEditComment ({onAddComment,onUpdateComment,updateMode,CommentText}) 
   );
 }
 
-export default AddEditComment 
+export default React.memo(AddEditComment )

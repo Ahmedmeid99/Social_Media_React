@@ -145,4 +145,4 @@ const CommentsList = ({ comments, onDeleteComment, onUpdateComment }) => {
   );
 };
 
-export default CommentsList;
+export default React.memo(CommentsList);

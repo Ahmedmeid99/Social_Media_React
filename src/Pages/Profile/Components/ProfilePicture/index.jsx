@@ -100,6 +100,7 @@ function ProfilePicture({ userID }) {
       {profilePicture?.MediaType?.startsWith("image") && (
         <img
           className="w-40 h-40 block rounded-full m-auto mb-3 p-1 dark:bg-darkColor-800 bg-gray-50"
+          loading="lazy"
           src={`data:${profilePicture?.MediaType};base64,${profilePicture?.PictureData}`}
           alt="Medium avatar"
         />

@@ -240,4 +240,4 @@ function AddEditPost({
   );
 }
 
-export default AddEditPost;
+export default React.memo(AddEditPost);

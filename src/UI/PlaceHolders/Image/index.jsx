@@ -10,4 +10,4 @@ function ImagePlaceHolder() {
   );
 }
 
-export default ImagePlaceHolder;
+export default React.memo(ImagePlaceHolder);

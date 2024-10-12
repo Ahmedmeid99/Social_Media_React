@@ -8,4 +8,4 @@ function Avater({Char}) {
   )
 }
 
-export default Avater
+export default React.memo(Avater)

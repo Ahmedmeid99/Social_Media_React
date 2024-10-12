@@ -190,4 +190,4 @@ const Post = ({ postinfo , onDelete}) => {
     );
   };
 
-  export default Post;
+  export default React.memo(Post);

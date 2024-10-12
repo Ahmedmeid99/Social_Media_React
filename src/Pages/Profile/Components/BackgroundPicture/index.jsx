@@ -98,6 +98,7 @@ try{
         {backgroundPicture?.MediaType?.startsWith("image") && (
           <img
             className="w-full h-full rounded-ee-md rounded-es-md"
+            loading="lazy"
             src={`data:${backgroundPicture?.MediaType};base64,${backgroundPicture?.PictureData}`}
             alt="background !"
           />

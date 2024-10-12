@@ -3,7 +3,7 @@ import Card from "../../UI/Card";
 import { GetUserProfilePicture } from "../../API/ProfilePicture";
 import { Link } from "react-router-dom";
 
-export default function ProfileBox({ userId, userName, email }) {
+ const ProfileBox =({ userId, userName, email })=> {
   const [profilePicture, setProfilePicture] = useState(null);
 
   const fetchUserProfilePicture = async (userId) => {
@@ -80,3 +80,4 @@ export function ProfileInfo({ count, title }) {
     </div>
   );
 }
+export default React.memo(ProfileBox)

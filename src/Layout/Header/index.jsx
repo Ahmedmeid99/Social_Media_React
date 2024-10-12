@@ -1,7 +1,7 @@
 "use client";
 import { FaMoon, FaSun } from "react-icons/fa";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -16,7 +16,7 @@ import { getUserInfo } from "../../Global/Methods";
 import { Link } from "react-router-dom";
 
 
-export default function Header() {
+const Header =() => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const User = getUserInfo();
@@ -131,3 +131,4 @@ export default function Header() {
     </header>
   );
 }
+export default React.memo(Header)
