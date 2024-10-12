@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
         StoreLogin(resultAction.payload);
         
         if (loginUser.fulfilled.match(resultAction)) {
-          navigate('/Home'); // Navigate after successful login
+          navigate('/'); // Navigate after successful login
         }
       } catch (err) {
         console.error("Login failed", err);
