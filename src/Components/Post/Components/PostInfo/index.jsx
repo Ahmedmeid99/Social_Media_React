@@ -46,7 +46,7 @@ const PostActions = ({
   useEffect(() => {
     FetchComments(postId);
     return () => {};
-  }, []);
+  }, [postId]);
 
   const toggleComments = () => {
     setCommentsVisible(!commentsVisible);
