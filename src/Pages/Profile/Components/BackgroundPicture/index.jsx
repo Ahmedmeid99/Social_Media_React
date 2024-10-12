@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import background from "../../../../assets/images/background/background2.jpg";
 
 import { AddnewBackgroundPicture, GetUserBackgroundPicture, UpdatenewBackgroundPicture } from '../../../../API/BackgroundPicture';
 import { useSelector } from 'react-redux';
@@ -103,13 +102,7 @@ try{
             alt="background !"
           />
         )}
-        {!backgroundPicture?.MediaType?.startsWith("image") && (
-          <img
-            className="w-full h-full rounded-ee-md rounded-es-md"
-            src={background}
-            alt="default background !"
-          />
-        )}
+        {!backgroundPicture?.MediaType?.startsWith("image") && (<div className="w-full h-full rounded-ee-md rounded-es-md bg-gray-300 dark:bg-gray-600"></div>)}
         {/* Upload Image Button */}
         {User.UserId == userID && 
         <button
