@@ -35,7 +35,7 @@ function UsersList() {
       <ul className=" divide-y divide-slate-200">
         {/*User Item */}
         {relatedUsers?.map((user) => (
-          <UserItem user={user}/>
+          <UserItem key={user.UserId} user={user}/>
         ))}
 
       </ul>
