@@ -41,7 +41,7 @@ export default function Posts() {
     const handleScroll = () => {
       if (
         window.innerHeight + document.documentElement.scrollTop >=
-        document.documentElement.scrollHeight - 100
+        document.documentElement.scrollHeight - 50
       ) {
         loadPosts();
       }
@@ -49,7 +49,7 @@ export default function Posts() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [page, hasMore, isFetching]); // Add isFetching to dependency array
+  }, [location.pathnam,page, hasMore, isFetching]); // Add isFetching to dependency array
 
   const handleAddPost = (post) => {
     setPosts([post, ...posts]);

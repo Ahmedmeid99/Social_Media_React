@@ -18,12 +18,12 @@ function Home() {
           alt="background !"
         />
       </div>
-      <div className="flex justify-center md:justify-between gap-3 px-3 py-3 w-full dark:bg-darkColor-800 bg-gray-50">
+      <div className="flex justify-center md:justify-between gap-3 px-3 py-3 w-full dark:bg-darkColor-800 bg-gray-50 min-h-14">
         {/* Left Sidebar */}
         <ProfileBox userId={User?.UserId} userName={User?.UserName} email={User?.Email}/>
 
         {/* Middle Section (Posts) */}
-        <div className="m-auto w-11/12  md:w-8/12 lg:w-4/12 xl:w-6/12">
+        <div className="m-auto w-11/12  md:w-8/12 lg:w-4/12 xl:w-6/12 ">
           <Posts />
         </div>
 
