@@ -10,7 +10,7 @@ export const GetUserBackgroundPicture = async (userId) => {
     const response = await api.get(`/Api/UserBackgroundPicture/users/${userId}`);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -40,7 +40,7 @@ export const AddnewBackgroundPicture = async (userId, selectedFiles) => {
     return response.data;
   } catch (error) {
     console.error("Error adding post:", error);
-    throw error; 
+    //throw error; 
   }
 };
 
@@ -67,6 +67,6 @@ export const UpdatenewBackgroundPicture = async (BackgroundPictureId ,selectedFi
     return response.data;
   } catch (error) {
     console.error("Error adding post:", error);
-    throw error; 
+    //throw error; 
   }
 };

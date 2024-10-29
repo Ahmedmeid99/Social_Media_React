@@ -8,6 +8,6 @@ export const GetCountries = async () => {
         return response.data;
     } catch (error) {
          
-        throw error;
+        //throw error;
     }
 }

@@ -6,7 +6,7 @@ export const GetComments = async (postId) => {
     const response = await axios.get(`${URL}/Api/Comment/post/${postId}`);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -15,7 +15,7 @@ export const PostComment = async (data) => {
     const response = await axios.post(`${URL}/api/Comment`, data);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 export const DeleteComment = async (CommentId) => {
@@ -23,7 +23,7 @@ export const DeleteComment = async (CommentId) => {
     const response = await axios.delete(`${URL}/api/Comment/${CommentId}`);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -35,6 +35,6 @@ export const UpdateComment = async (CommentId, CommentData) => {
     );
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };

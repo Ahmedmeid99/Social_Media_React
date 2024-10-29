@@ -10,7 +10,7 @@ export const GetPosts = async (userId,page,pageSize) => {
     const response = await api.get(`/Api/Post/user/${userId}/page/${page}/pageSize/${pageSize}`);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -19,7 +19,7 @@ export const GetMediaDataByPostId = async (postId) => {
     const response = await api.get(`/Api/Post/Post/${postId}/mediaData`);
     return response.data;
   } catch (e) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -29,7 +29,7 @@ export const GetPostsByUserId = async (userId) => {
     const response = await api.get(`/Api/Post/users/${userId}/posts`);
     return response.data;
   } catch (e) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -38,7 +38,7 @@ export const GetImagesByUserId = async (userId) => {
     const response = await api.get(`/Api/Post/users/${userId}/images`);
     return response.data;
   } catch (e) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -47,7 +47,7 @@ export const GetVideosByUserId = async (userId) => {
     const response = await api.get(`/Api/Post/users/${userId}/videos`);
     return response.data;
   } catch (e) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -56,7 +56,7 @@ export const GetFilesByUserId = async (userId) => {
     const response = await api.get(`/Api/Post/users/${userId}/files`);
     return response.data;
   } catch (e) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -87,7 +87,7 @@ export const AddnewPost = async (userId, postContent, selectedFiles) => {
     return response.data;
   } catch (error) {
     console.error("Error adding post:", error);
-    throw error; 
+    //throw error; 
   }
 };
 
@@ -118,7 +118,7 @@ export const UpdatePost = async (postId,postContent, selectedFiles) => {
     return response.data;
   } catch (error) {
     console.error("Error adding post:", error);
-    throw error; 
+    //throw error; 
   }
 };
 
@@ -127,6 +127,6 @@ export const DeletePost = async (postId) => {
     const response = await api.delete(`/Api/Post/${postId}`);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };

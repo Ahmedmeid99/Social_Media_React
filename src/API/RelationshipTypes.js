@@ -10,6 +10,6 @@ export const GetRelationshipTypes = async () => {
     const response = await api.get(`/Api/RelationshipTypes`);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };

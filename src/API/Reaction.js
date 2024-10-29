@@ -10,7 +10,7 @@ export const AddUserReaction = async (userReactionData) => {
     const response = await api.post(`/Api/UserReaction`, userReactionData);
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -21,7 +21,7 @@ export const DeleteUserReaction = async (PostId, UserId) => {
     );
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
 
@@ -38,6 +38,6 @@ export const UpdateUserReaction = async (
     );
     return response.data;
   } catch (error) {
-    throw error;
+    //throw error;
   }
 };
