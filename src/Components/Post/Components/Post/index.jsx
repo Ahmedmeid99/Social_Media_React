@@ -174,9 +174,8 @@ const Post = ({ postinfo, onDelete }) => {
           <img
             loading="lazy"
             alt={`there are an error when try display img in post = ${post.PostID}`}
-            // src={post?.imageUrl}
-            //src={`data:${media.MediaType};base64,${media.MediaData}`}
-            src={`${URL}/api/Post/media/${post.PostID}`}
+            src={`data:${media.MediaType};base64,${media.MediaData}`}
+            // src={`${URL}/api/Post/media/${post.PostID}`}
             className="w-full h-80 mb-3 bg-gray-50 object-cover rounded-lg block"
           />
         )}
@@ -189,8 +188,8 @@ const Post = ({ postinfo, onDelete }) => {
             className="w-full h-80 mb-3 bg-gray-50 object-cover rounded-lg block"
           >
             <source
-              //src={`data:video/mp4;base64,${media.MediaData}`}
-              src={`${URL}/api/Post/media/${post.PostID}`}
+              src={`data:video/mp4;base64,${media.MediaData}`}
+              // src={`${URL}/api/Post/media/${post.PostID}`}
               type="video/mp4"
             />
             Your browser does not support the video tag.
