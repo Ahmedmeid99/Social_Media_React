@@ -1,6 +1,6 @@
 //@/collapse
 
-import React, { useReducer, useState, useEffect } from "react";
+import  { useReducer, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { signupUser } from "../../Redux/user/userActions";
@@ -72,7 +72,7 @@ const Signup = () => {
   const UserDispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isSignup, loading, error } = useSelector((state) => state.User);
+  const { loading, error } = useSelector((state) => state.User);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 

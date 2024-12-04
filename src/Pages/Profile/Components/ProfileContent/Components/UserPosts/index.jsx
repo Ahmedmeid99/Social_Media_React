@@ -27,7 +27,7 @@ function UserPosts({userID}) {
     fetchPosts();
   }, [location.pathname]); 
   return (
-    
+     
     <div className=" w-full lg:w-8/12 m-auto md:ml-0">
       {loading&&   <div className='text-gray-400 flex justify-center flex-col items-center gap-2 w-fit mx-auto my-32 text-base'>Loading...</div> }
       {!loading && Array.isArray(userPosts) && userPosts?.length > 0 && (
